@@ -46,11 +46,8 @@ def add_member():
 def get_member(id):
 
     member = jackson_family.get_member(id)
-    
     if not member:
         return jsonify({"error": "Member not found"}), 404
-   
-    
     return jsonify(member), 200
 
 @app.route('/member/<int:id>', methods=['DELETE'])

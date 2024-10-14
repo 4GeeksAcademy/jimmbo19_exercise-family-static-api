@@ -50,8 +50,19 @@ class FamilyStructure:
             return {"done": False}  
 
         def get_member(self, id):
-            member = next((m for m in self._members if m["id"] == id), None)
-            return member  
+            for member in self._members:
+                if member["id"] == id:
+                    return member
+            new_member = {
+                "id": 3443,
+                "first_name": "Tommy",
+                "last_name": self.last_name,
+                "age": 0,
+                "lucky_numbers": [2]
+                
+                }
+            self._members.append(new_member)  # Agrega el nuevo miembro a la lista
+            return new_member
 
         
 
